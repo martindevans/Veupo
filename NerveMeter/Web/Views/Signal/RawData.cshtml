@@ -1,0 +1,21 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+    <head>
+        <title>Raw Data</title>
+    </head>
+    <body>
+        <div id="data">
+            
+        </div>
+        <script>
+            var output = document.getElementById("data");
+
+            var socket = new WebSocket("@Model.Endpoint");
+            socket.onmessage = function(message) {
+                var div = document.createElement("div");
+                div.nodeValue = message;
+                output.appendChild(div);
+            };
+        </script>
+    </body>
+</html>
